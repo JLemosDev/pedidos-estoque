@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Demonstração de gestão de pedidos e estoque desenvolvida para portfólio."
+    />
+    <title>Pedidos & Estoque · JLemosDev</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/app.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div id="login-screen" class="login-screen">
+      <main class="login-card">
+        <span class="brand-icon">▦</span>
+        <p class="eyebrow">JLemosDev / PORTFÓLIO</p>
+        <h1>Pedidos & Estoque</h1>
+        <p class="muted">Do pedido ao saldo, cada movimento registrado.</p>
+        <form id="login-form">
+          <label
+            >Usuário<input
+              name="usuario"
+              autocomplete="username"
+              required
+              value="demo"
+          /></label>
+          <label
+            >Senha<input
+              name="senha"
+              autocomplete="current-password"
+              type="password"
+              required
+              value="demo12345"
+          /></label>
+          <button type="submit" class="primary">
+            Entrar na demonstração <span>→</span>
+          </button>
+        </form>
+        <p id="login-error" role="alert"></p>
+        <div class="demo-note">
+          Conta fictícia do modo local: <strong>demo / demo12345</strong>. Use
+          apenas dados de exemplo.
+        </div>
+      </main>
+    </div>
+    <div id="application" hidden>
+      <aside class="sidebar">
+        <a class="brand" href="/"
+          ><span class="brand-icon">▦</span
+          ><span>Pedidos<span class="brand-sub">& Estoque</span></span></a
+        >
+        <p class="nav-label">OPERAÇÃO</p>
+        <nav aria-label="Seções">
+          <button data-section="produtos" class="active">
+            ▦ &nbsp; Produtos</button
+          ><button data-section="pedidos">☷ &nbsp; Pedidos</button
+          ><button data-section="movimentos">↔ &nbsp; Movimentações</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <span class="demo-badge">DEMONSTRAÇÃO LOCAL</span>
+          <p>Uma pequena loja.<br />Uma operação organizada.</p>
+          <button id="logout">Sair da sessão →</button>
+        </div>
+      </aside>
+      <main class="workspace">
+        <header class="topbar">
+          <span
+            >Loja Horizonte
+            <span class="muted">/ Painel de operação</span></span
+          ><span class="avatar" aria-label="Usuário da demonstração">LH</span>
+        </header>
+        <div class="page">
+          <p class="eyebrow">VISÃO DA OPERAÇÃO</p>
+          <div class="page-heading">
+            <div>
+              <h1 id="section-title">Produtos</h1>
+              <p id="section-description" class="muted">
+                Seu catálogo e os saldos disponíveis, em um só lugar.
+              </p>
+            </div>
+            <button id="main-action" class="primary">+ Novo produto</button>
+          </div>
+          <div id="notice" role="status" aria-live="polite"></div>
+          <div class="metrics" id="metrics"></div>
+          <section class="panel">
+            <div class="panel-header">
+              <h2 id="list-title">Catálogo de produtos</h2>
+              <label class="search-label"
+                ><span class="sr-only">Buscar nesta seção</span
+                ><input
+                  id="search"
+                  type="search"
+                  placeholder="Buscar nome ou código"
+              /></label>
+            </div>
+            <div id="content" aria-busy="false"></div>
+          </section>
+          <footer>
+            Projeto de portfólio · Java 21 + Spring Boot · desenvolvido com
+            assistência de IA.<br />Sem pagamentos, emissão fiscal ou operação
+            comercial real.
+          </footer>
+        </div>
+      </main>
+    </div>
+    <dialog id="editor">
+      <div class="dialog-heading">
+        <h2 id="dialog-title"></h2>
+        <button
+          type="button"
+          id="close-dialog"
+          class="icon-button"
+          aria-label="Fechar formulário"
+        >
+          ×
+        </button>
+      </div>
+      <form id="editor-form"></form>
+    </dialog>
+  </body>
+</html>
